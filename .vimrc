@@ -70,10 +70,3 @@ au BufNewFile, BufRead *.py match BadWhitespace /\s\+$/
 au BufNewFile, BufRead *.py match BadWhitespace /^\t\+/
 au BufNewFile, BufRead *.py vmap <CR> :s/\(^\s*\)/\1# /<CR>:let @/ = ""<CR>
 au BufNewFile, BufRead *.py vmap <S-CR> :s/\(^\s*\)# /\1/<CR>:let @/ = ""<CR>
-
-" this configuration is for jedi
-
-let g:jedi#goto_command = "gd"
-let g:jedi#goto_assignments_command = "gD"
-let g:jedi#documentation_command = "K"
-let g:jedi#completions_command = "<C-Space>"
