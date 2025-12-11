@@ -70,3 +70,4 @@ au BufNewFile, BufRead *.py match BadWhitespace /\s\+$/
 au BufNewFile, BufRead *.py match BadWhitespace /^\t\+/
 au BufNewFile, BufRead *.py vmap <CR> :s/\(^\s*\)/\1# /<CR>:let @/ = ""<CR>
 au BufNewFile, BufRead *.py vmap <S-CR> :s/\(^\s*\)# /\1/<CR>:let @/ = ""<CR>
+
