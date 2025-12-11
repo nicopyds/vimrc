@@ -29,6 +29,7 @@ set virtualedit="block"
 set scrolloff=999
 set t_ut=""
 set noswapfile
+set expandtab
 
 " Useful remappings for Vim in Chrome
 " This remappings are when you have 2 buffers opened
@@ -57,7 +58,7 @@ au FileType python setl shiftwidth=4 tabstop=4
 au FileType python setl ofu=python3complete#Complete
 
 au BufNewFile, BufRead *.py set colorcolumn=79
-au BufNewFile, BufRead *.py set setLocal foldmethod=indent
+au BufNewFile, BufRead *.py set foldmethod=indent
 au BufNewFile, BufRead *.py set tabstop=4
 au BufNewFile, BufRead *.py set shiftwidth=4 
 au BufNewFile, BufRead *.py set softtabstop=4
