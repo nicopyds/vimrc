@@ -1,6 +1,31 @@
 
 -- Options
 
+-- options from .vimrc
+vim.opt.mouse = "a"
+vim.cmd("syntax on")
+vim.opt.encoding = "utf-8"
+vim.opt.foldmethod = "indent"
+vim.opt.laststatus = 2
+vim.opt.statusline:append("%F")
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
+
+vim.cmd([[
+  highlight CursorLine cterm=bold ctermbg=black
+]])
+
+vim.opt.hlsearch = true
+vim.opt.smartcase = true
+vim.opt.showmatch = true
+vim.opt.swapfile = false
+
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
+
+-- nvim config
 vim.opt.number = true
 vim.opt.relativenumber = true
 
@@ -168,7 +193,8 @@ require("lazy").setup({
         dependencies = { 'rafamadriz/friendly-snippets' },
         version = '1.*',
         opts = {
-            keymap = { preset = 'default' },
+            --keymap = { preset = 'default' },
+            keymap = { preset = 'super-tab' },
             appearance = {
                 nerd_font_variant = 'mono'
             },
