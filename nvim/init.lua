@@ -3,7 +3,6 @@
 
 -- options from .vimrc
 vim.opt.mouse = "a"
-vim.cmd("syntax on")
 vim.opt.encoding = "utf-8"
 vim.opt.foldmethod = "indent"
 vim.opt.laststatus = 2
@@ -65,7 +64,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 vim.diagnostic.config({
-    virtual_lines = true,
+    current_line = false,
+    virtual_lines = false,
 })
 
 -- Extensions
