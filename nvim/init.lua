@@ -1,3 +1,9 @@
+--NVIM v0.11.5
+--Build type: Release
+--LuaJIT 2.1.1765007043
+
+-- Options
+-- Extensions
 
 -- Options
 
@@ -183,7 +189,19 @@ require("lazy").setup({
         "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
         config = function()
             require("mason-tool-installer").setup({
-                ensure_installed = {"lua_ls", "ts_ls", "pyright", "eslint_d"}
+                ensure_installed = {
+                    "lua_ls",
+                    "ts_ls",
+                    "html",
+                    "cssls",
+                    "bashls",
+                    "pyright",
+                    "eslint_d",
+
+                    "vue_ls",
+                    "vue-language-server",
+
+                }
             })
 
         end,
@@ -192,6 +210,37 @@ require("lazy").setup({
     -- Extensions
     {
         "neovim/nvim-lspconfig",
+        config = function()
+            local data_path = vim.fn.stdpath("data")
+
+            local vue_ts_plugin_path =
+            data_path .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
+
+            vim.lsp.config("ts_ls", {
+                filetypes = {
+                    "javascript",
+                    "javascriptreact",
+                    "typescript",
+                    "typescriptreact",
+                    "vue",
+                },
+                init_options = {
+                    plugins = {
+                        {
+                            name = "@vue/typescript-plugin",
+                            location = vue_ts_plugin_path,
+                            languages = { "vue" },
+                        },
+                    },
+                },
+            })
+
+            vim.lsp.config("vue_ls", {
+                filetypes = { "vue" },
+            })
+
+            vim.lsp.enable({ "ts_ls", "vue_ls" })
+        end,
     },
 
     -- Extensions
